@@ -1,0 +1,16 @@
+---
+
+- name: Import key
+  apt_key:
+    url: "{{ ceph_apt_key_url }}"
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Import repository
+  apt_repository:
+    repo: "{{ ceph_deb_repository }}"
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install Ceph software
+  apt: name=ceph-fs-common state=present update_cache=yes
+#- name: Create repo entries
+#  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'

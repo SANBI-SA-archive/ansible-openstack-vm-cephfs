@@ -1,0 +1,14 @@
+---
+
+- name: Check directory existance
+  file:
+    path: "{{ cephfs_mountpoint }}"
+    state: directory
+
+- name: Mount CephFS
+  mount:
+    name: "{{ cephfs_mountpoint }}"
+    src: "{{ cephfs_mount_src }}"
+    fstype: ceph
+    opts: "{{ cephfs_mount_opt }}"
+    state: mounted

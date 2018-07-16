@@ -1,0 +1,4 @@
+---
+- include: conf_network.yml
+- include: conf_software.yml
+- include: ceph_mount.yml
