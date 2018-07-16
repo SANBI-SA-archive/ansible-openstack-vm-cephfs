@@ -11,6 +11,6 @@ ceph_apt_key_url: https://download.ceph.com/keys/release.asc
 ceph_yum_key_url: https://download.ceph.com/keys/release.asc
 
 #CephFS vars
-cephfs_mount_src: ceph-mon1.sanbi.ac.za,ceph-mon2.sanbi.ac.za,ceph-mon2.sanbi.ac.za:6789:/
+cephfs_mount_src: "ceph-mon1.sanbi.ac.za,ceph-mon2.sanbi.ac.za,ceph-mon2.sanbi.ac.za:6789:/{{ cephfs_inner_loc }}"
 cephfs_mount_loc: "{{ cehpfs_mountpoint }}"
 cephfs_mount_opt: "name={{ cephfs_user }},secret={{ cephfs_accesskey }},_netdev,noatime"
