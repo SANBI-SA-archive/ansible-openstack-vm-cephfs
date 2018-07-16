@@ -7,8 +7,9 @@
   become: True
 
   roles:
-    - role: vm-cephfs
-      cephfs_user: <cephx_username> 
-      cephfs_mountpoint: /mnt
-      cephfs_accesskey: <cehpx_key>
+    - role: ansible-openstack-vm-cephfs
+      cephfs_inner_loc: /monitor     # Directory from CephFS to mount to local machine
+      cephfs_user: <cephx_user>      # Example user
+      cephfs_mountpoint: /mnt        # Where to mount the CephFS directory to on the local machine
+      cephfs_accesskey: <cehpx_key>  # User access key
 ```
